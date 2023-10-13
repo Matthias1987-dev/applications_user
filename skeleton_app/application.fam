@@ -1,0 +1,14 @@
+App(
+    appid="my_app_id_42",
+    name="[SUBMENU] Skeleton_App",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="my_app_name_app",
+    stack_size=4 * 1024,
+    requires=[
+        "gui",
+    ],
+    order=10,
+    fap_icon="app.png",
+    fap_category="Jamison_Derek_UI",
+    fap_icon_assets="assets",
+)
