@@ -6,12 +6,12 @@
 #include <input/input.h>
 #include "mad_test_button_panel_on_off_icons.h"
 
+//test vom hp laptop zu syncronisieren
 typedef struct {
     uint8_t x, y;
 } ImagePosition;
 
 static ImagePosition image_position = {.x = 1, .y = 1};
-
 
 void my_draw_background(Canvas* canvas, void* context) {
     UNUSED(context);
@@ -73,9 +73,6 @@ void my_draw_enter_8(Canvas* canvas, void* context) {
     canvas_draw_icon(canvas, 99, 35, &I_On_hvr_25x27);
 }
 
-
-
-
 int32_t mad_test_button_panel_on_off_app(void* p) {
     UNUSED(p);
     FuriMessageQueue* event_queue = furi_message_queue_alloc(8, sizeof(InputEvent));
@@ -88,58 +85,56 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
 
     InputEvent event;
 
-    bool running = true;
+    // bool running = true;
+    int running = 1;
     while(running) {
-            if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
+        if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
             if((event.type == InputTypePress) || (event.type == InputTypeRepeat)) {
-
-    if (event.type == InputTypePress) {
-        if (event.key == InputKeyUp) {
-            image_position.y--;
-            if (image_position.y < 1) {
-                image_position.y = 1;
+                if(event.type == InputTypePress) {
+                    if(event.key == InputKeyUp) {
+                        image_position.y--;
+                        if(image_position.y < 1) {
+                            image_position.y = 1;
+                        }
+                    } else if(event.key == InputKeyDown) {
+                        image_position.y++;
+                        if(image_position.y > 2) {
+                            image_position.y = 2;
+                        }
+                    } else if(event.key == InputKeyLeft) {
+                        image_position.x--;
+                        if(image_position.x < 1) {
+                            image_position.x = 1;
+                        }
+                    } else if(event.key == InputKeyRight) {
+                        image_position.x++;
+                        if(image_position.x > 4) {
+                            image_position.x = 4;
+                        }
+                    }
+                    // Set the view port draw callback based on the new image position
+                    if(image_position.y == 1 && image_position.x == 1) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_1, NULL);
+                    } else if(image_position.y == 2 && image_position.x == 1) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_2, NULL);
+                    } else if(image_position.y == 1 && image_position.x == 2) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_3, NULL);
+                    } else if(image_position.y == 2 && image_position.x == 2) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_4, NULL);
+                    } else if(image_position.y == 1 && image_position.x == 3) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_5, NULL);
+                    } else if(image_position.y == 2 && image_position.x == 3) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_6, NULL);
+                    } else if(image_position.y == 1 && image_position.x == 4) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_7, NULL);
+                    } else if(image_position.y == 2 && image_position.x == 4) {
+                        view_port_draw_callback_set(view_port, my_draw_enter_8, NULL);
+                    }
+                }
             }
-        } else if (event.key == InputKeyDown) {
-            image_position.y++;
-            if (image_position.y > 2) {
-                image_position.y = 2;
-            }
-        } else if (event.key == InputKeyLeft) {
-            image_position.x--;
-            if (image_position.x < 1) {
-                image_position.x = 1;
-            }
-        } else if (event.key == InputKeyRight) {
-            image_position.x++;
-            if (image_position.x > 4) {
-                image_position.x = 4;
-            }
-        }
-        // Set the view port draw callback based on the new image position
-        if (image_position.y == 1 && image_position.x == 1) {
-            view_port_draw_callback_set(view_port, my_draw_enter_1, NULL);
-        } else if (image_position.y == 2 && image_position.x == 1) {
-            view_port_draw_callback_set(view_port, my_draw_enter_2, NULL);
-        } else if (image_position.y == 1 && image_position.x == 2) {
-            view_port_draw_callback_set(view_port, my_draw_enter_3, NULL);
-        } else if (image_position.y == 2 && image_position.x == 2) {
-            view_port_draw_callback_set(view_port, my_draw_enter_4, NULL);
-        } else if (image_position.y == 1 && image_position.x == 3) {
-            view_port_draw_callback_set(view_port, my_draw_enter_5, NULL);
-        } else if (image_position.y == 2 && image_position.x == 3) {
-            view_port_draw_callback_set(view_port, my_draw_enter_6, NULL);
-        } else if (image_position.y == 1 && image_position.x == 4) {
-            view_port_draw_callback_set(view_port, my_draw_enter_7, NULL);
-        } else if (image_position.y == 2 && image_position.x == 4) {
-            view_port_draw_callback_set(view_port, my_draw_enter_8, NULL);
         }
     }
-} else {
-    running = false;
-}
-}
-}           
-gui_remove_view_port(gui, view_port);
-    
-return 0;
+    gui_remove_view_port(gui, view_port);
+
+    return 0;
 }
