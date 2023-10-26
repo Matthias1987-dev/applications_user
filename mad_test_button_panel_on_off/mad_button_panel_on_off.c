@@ -97,24 +97,24 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
                 if(event.type == InputTypePress) {
                     if(event.key == InputKeyUp) {
                         image_position.y--;
-                        if(image_position.y < 1) {
-                            image_position.y = 1;
-                        }
+                        //if(image_position.y < 1) {
+                        //    image_position.y = 1;
+                        //}
                     } else if(event.key == InputKeyDown) {
                         image_position.y++;
-                        if(image_position.y > 2) {
-                            image_position.y = 2;
-                        }
+                        //if(image_position.y > 2) {
+                        //    image_position.y = 2;
+                        //}
                     } else if(event.key == InputKeyLeft) {
                         image_position.x--;
-                        if(image_position.x < 1) {
-                            image_position.x = 1;
-                        }
+                        //if(image_position.x < 1) {
+                        //    image_position.x = 1;
+                        //}
                     } else if(event.key == InputKeyRight) {
                         image_position.x++;
-                        if(image_position.x > 4) {
-                            image_position.x = 4;
-                        }
+                        //if(image_position.x > 4) {
+                        //    image_position.x = 4;
+                        //}
                     }   if(event.key == InputKeyBack) {
                         break;
                     }
