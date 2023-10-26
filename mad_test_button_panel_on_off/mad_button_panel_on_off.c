@@ -115,6 +115,8 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
                         if(image_position.x > 4) {
                             image_position.x = 4;
                         }
+                    }   if(event.key == InputKeyBack) {
+                        break;
                     }
                     // Set the view port draw callback based on the new image position
                     if(image_position.y == 1 && image_position.x == 1) {
@@ -144,9 +146,6 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
                     }
                 }
             }
-        }
-        if(event.key == InputKeyBack) {
-            break;
         }
     }
     gui_remove_view_port(gui, view_port);
