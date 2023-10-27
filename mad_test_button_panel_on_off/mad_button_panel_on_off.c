@@ -17,11 +17,29 @@
 //enter_7   x=1     y=4
 //enter_8   x=2     y=4
 //
-typedef struct {
-    uint8_t x, y;
-} ImagePosition;
 
-static ImagePosition image_position = {.x = 1, .y = 1};
+typedef struct {
+    int x;
+    int y;
+} ButtonPosition;
+
+typedef struct {
+    ButtonPosition* position;
+} Button;
+
+Button* button_alloc() {
+    Button* instance = malloc(sizeof(Button));
+    instance->position = malloc(sizeof(ButtonPosition));
+    instance->position->x = 1;
+    instance->position->y = 1;
+
+    return instance;
+}
+
+void button_free(Button* instance) {
+    free(instance->position);
+    free(instance);
+}
 
 void my_draw_background(Canvas* canvas, void* context) {
     UNUSED(context);
