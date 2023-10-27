@@ -87,67 +87,67 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
     view_port_draw_callback_set(view_port, my_draw_background, NULL);
     gui_add_view_port(gui, view_port, GuiLayerFullscreen);
 
-    InputEvent event;
+    //InputEvent event;
 
-    bool running = true;
-    do {
-        if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
-            if((event.type == InputTypePress) || (event.type == InputTypeRepeat)) {
-                if(event.type == InputTypePress) {
-                    if(event.key == InputKeyUp) {
-                        image_position.y--;
-                        if(image_position.y < 1) {
-                            image_position.y = 1;
-                        }
-                    } else if(event.key == InputKeyDown) {
-                        image_position.y++;
-                        if(image_position.y > 2) {
-                            image_position.y = 2;
-                        }
-                    } else if(event.key == InputKeyLeft) {
-                        image_position.x--;
-                        if(image_position.x < 1) {
-                            image_position.x = 1;
-                        }
-                    } else if(event.key == InputKeyRight) {
-                        image_position.x++;
-                        if(image_position.x > 4) {
-                            image_position.x = 4;
-                        }
-                    }
-                    if(event.key == InputKeyBack) {
-                        running = false;
-                    }
-                    // Set the view port draw callback based on the new image position
-                    if(image_position.y == 1 && image_position.x == 1) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_1, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 2 && image_position.x == 1) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_2, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 1 && image_position.x == 2) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_3, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 2 && image_position.x == 2) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_4, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 1 && image_position.x == 3) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_5, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 2 && image_position.x == 3) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_6, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 1 && image_position.x == 4) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_7, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    } else if(image_position.y == 2 && image_position.x == 4) {
-                        view_port_draw_callback_set(view_port, my_draw_enter_8, NULL);
-                        view_port_input_callback_set(view_port, my_input_callback, event_queue);
-                    }
-                }
-            }
-        }
-    } while(running);
+    //bool running = true;
+    //do {
+    //if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
+    //if((event.type == InputTypePress) || (event.type == InputTypeRepeat)) {
+    //if(event.type == InputTypePress) {
+    //if(event.key == InputKeyUp) {
+    //image_position.y--;
+    //if(image_position.y < 1) {
+    //image_position.y = 1;
+    //}
+    //} else if(event.key == InputKeyDown) {
+    //image_position.y++;
+    //if(image_position.y > 2) {
+    //image_position.y = 2;
+    //}
+    //} else if(event.key == InputKeyLeft) {
+    //image_position.x--;
+    //if(image_position.x < 1) {
+    //image_position.x = 1;
+    //}
+    //} else if(event.key == InputKeyRight) {
+    //image_position.x++;
+    //if(image_position.x > 4) {
+    //image_position.x = 4;
+    //}
+    //}
+    //if(event.key == InputKeyBack) {
+    //running = false;
+    //}
+    // Set the view port draw callback based on the new image position
+    if(image_position.y == 1 && image_position.x == 1) {
+        view_port_draw_callback_set(view_port, my_draw_enter_1, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 2 && image_position.x == 1) {
+        view_port_draw_callback_set(view_port, my_draw_enter_2, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 1 && image_position.x == 2) {
+        view_port_draw_callback_set(view_port, my_draw_enter_3, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 2 && image_position.x == 2) {
+        view_port_draw_callback_set(view_port, my_draw_enter_4, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 1 && image_position.x == 3) {
+        view_port_draw_callback_set(view_port, my_draw_enter_5, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 2 && image_position.x == 3) {
+        view_port_draw_callback_set(view_port, my_draw_enter_6, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 1 && image_position.x == 4) {
+        view_port_draw_callback_set(view_port, my_draw_enter_7, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    } else if(image_position.y == 2 && image_position.x == 4) {
+        view_port_draw_callback_set(view_port, my_draw_enter_8, NULL);
+        view_port_input_callback_set(view_port, my_input_callback, event_queue);
+    }
+    //}
+    //}
+    //}
+    //} while(running);
     gui_remove_view_port(gui, view_port);
 
     return 0;
