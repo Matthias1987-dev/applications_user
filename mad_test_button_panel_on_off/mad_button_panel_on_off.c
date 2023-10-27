@@ -89,34 +89,34 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
 
     InputEvent event;
 
-    // bool running = true;
-    int running = 1;
-    while(running) {
+    bool running = true;
+    do {
         if(furi_message_queue_get(event_queue, &event, 100) == FuriStatusOk) {
             if((event.type == InputTypePress) || (event.type == InputTypeRepeat)) {
                 if(event.type == InputTypePress) {
                     if(event.key == InputKeyUp) {
                         image_position.y--;
-                        //if(image_position.y < 1) {
-                        //    image_position.y = 1;
-                        //}
+                        if(image_position.y < 1) {
+                            image_position.y = 1;
+                        }
                     } else if(event.key == InputKeyDown) {
                         image_position.y++;
-                        //if(image_position.y > 2) {
-                        //    image_position.y = 2;
-                        //}
+                        if(image_position.y > 2) {
+                            image_position.y = 2;
+                        }
                     } else if(event.key == InputKeyLeft) {
                         image_position.x--;
-                        //if(image_position.x < 1) {
-                        //    image_position.x = 1;
-                        //}
+                        if(image_position.x < 1) {
+                            image_position.x = 1;
+                        }
                     } else if(event.key == InputKeyRight) {
                         image_position.x++;
-                        //if(image_position.x > 4) {
-                        //    image_position.x = 4;
-                        //}
-                    }   if(event.key == InputKeyBack) {
-                        break;
+                        if(image_position.x > 4) {
+                            image_position.x = 4;
+                        }
+                    }
+                    if(event.key == InputKeyBack) {
+                        running = false;
                     }
                     // Set the view port draw callback based on the new image position
                     if(image_position.y == 1 && image_position.x == 1) {
@@ -147,7 +147,7 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
                 }
             }
         }
-    }
+    } while(running);
     gui_remove_view_port(gui, view_port);
 
     return 0;
