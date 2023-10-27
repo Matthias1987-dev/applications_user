@@ -6,7 +6,17 @@
 #include <input/input.h>
 #include "mad_test_button_panel_on_off_icons.h"
 
-//test vom hp laptop zu syncronisieren
+//List of the x and y
+//
+//enter_1   x=1     Y=1
+//enter_2   x=2     Y=1
+//enter_3   x=1     y=2
+//enter_4   x=2     y=2
+//enter_5   x=1     y=3
+//enter_6   x=2     y=3
+//enter_7   x=1     y=4
+//enter_8   x=2     y=4
+//
 typedef struct {
     uint8_t x, y;
 } ImagePosition;
