@@ -1,11 +1,21 @@
 #include <furi.h>
 #include <furi_hal.h>
-
+#include <stdlib.h>
 #include <gui/gui.h>
 #include <gui/view.h>
 #include <input/input.h>
 #include "mad_test_button_panel_on_off_icons.h"
 
+// This is the position of the image on the screen
+// 1,1 is the first line left
+// 2,1 is the first line right
+// 1,2 is the second line left
+// 2,2 is the second line right
+// 1,3 is the third line left
+// 2,3 is the third line right
+// 1,4 is the fourth line left
+// 2,4 is the fourth line right
+//
 //List of the x and y
 //
 //enter_1   x=1     Y=1
@@ -18,6 +28,9 @@
 //enter_8   x=2     y=4
 //
 
+// struct definition copy from boxmover
+//https://github.com/at-manos/flipper-swdocs/blob/main/docs/your-first-program/code-so-far/gui/box_mover.c
+//
 typedef struct {
     int x;
     int y;
@@ -40,7 +53,17 @@ void button_free(Button* instance) {
     free(instance->position);
     free(instance);
 }
-
+// my_draw_background is a function that draw the background of the application
+// greatet from me.
+// my_draw_enter_1 to my_draw_enter_8 are function that draw the background and
+// the icon of the button that is selected
+// greatet from me.
+// my_input_callback is a function that put the event in the queue
+// greatet from jamison.
+// mad_test_button_panel_on_off_app is the main function of the application
+// that call the other function
+// greatet from me.
+//
 void my_draw_background(Canvas* canvas, void* context) {
     UNUSED(context);
     canvas_draw_icon(canvas, 12, 5, &I_Off_25x27);
