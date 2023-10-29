@@ -37,8 +37,7 @@ typedef enum {
  * typedef enum {
     SubGhzRemoteEventIdRedrawScreen = 0, // Custom event to redraw the screen
     SubGhzRemoteEventIdOkPressed = 42, // Custom event to process OK button getting pressed down
-} SubGhzRemoteEventId;
-*/
+} SubGhzRemoteEventId;*/
 
 typedef struct {
     ViewDispatcher* view_dispatcher; // Switches between our views
