@@ -34,7 +34,7 @@ typedef enum {
 } SubGhzRemoteView;
 
 /**Not use for the moment.
- * typedef enum {
+    typedef enum {
     SubGhzRemoteEventIdRedrawScreen = 0, // Custom event to redraw the screen
     SubGhzRemoteEventIdOkPressed = 42, // Custom event to process OK button getting pressed down
 } SubGhzRemoteEventId;*/

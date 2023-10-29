@@ -10,6 +10,7 @@
 #include <notification/notification.h>
 #include <notification/notification_messages.h>
 #include "skeleton_app_icons.h"
+// reserved to have the same line then in the mad_test_button_panel_on_off.h
 
 #define TAG "Skeleton"
 
@@ -32,6 +33,7 @@ typedef enum {
     SkeletonViewAbout, // The about screen with directions, link to social channel, etc.
 } SkeletonView;
 
+// reserved to have the same line then in the mad_test_button_panel_on_off.h
 typedef enum {
     SkeletonEventIdRedrawScreen = 0, // Custom event to redraw the screen
     SkeletonEventIdOkPressed = 42, // Custom event to process OK button getting pressed down
