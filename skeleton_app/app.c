@@ -18,8 +18,8 @@
 
 // Our application menu has 3 items.  You can add more items if you want.
 typedef enum {
-    SkeletonSubmenuIndexConfigure,
     SkeletonSubmenuIndexGame,
+    SkeletonSubmenuIndexConfigure,
     SkeletonSubmenuIndexAbout,
 } SkeletonSubmenuIndex;
 
@@ -104,11 +104,11 @@ static uint32_t skeleton_navigation_configure_callback(void* _context) {
 static void skeleton_submenu_callback(void* context, uint32_t index) {
     SkeletonApp* app = (SkeletonApp*)context;
     switch(index) {
-    case SkeletonSubmenuIndexConfigure:
-        view_dispatcher_switch_to_view(app->view_dispatcher, SkeletonViewConfigure);
-        break;
     case SkeletonSubmenuIndexGame:
         view_dispatcher_switch_to_view(app->view_dispatcher, SkeletonViewGame);
+        break;
+    case SkeletonSubmenuIndexConfigure:
+        view_dispatcher_switch_to_view(app->view_dispatcher, SkeletonViewConfigure);
         break;
     case SkeletonSubmenuIndexAbout:
         view_dispatcher_switch_to_view(app->view_dispatcher, SkeletonViewAbout);
@@ -368,9 +368,9 @@ static SkeletonApp* skeleton_app_alloc() {
 
     app->submenu = submenu_alloc();
     submenu_add_item(
-        app->submenu, "Config", SkeletonSubmenuIndexConfigure, skeleton_submenu_callback, app);
-    submenu_add_item(
         app->submenu, "Play", SkeletonSubmenuIndexGame, skeleton_submenu_callback, app);
+    submenu_add_item(
+        app->submenu, "Config", SkeletonSubmenuIndexConfigure, skeleton_submenu_callback, app);
     submenu_add_item(
         app->submenu, "About", SkeletonSubmenuIndexAbout, skeleton_submenu_callback, app);
     view_set_previous_callback(submenu_get_view(app->submenu), skeleton_navigation_exit_callback);
