@@ -204,3 +204,29 @@ static void subghzremote_setting_item_clicked(void* context, uint32_t index) {
         view_dispatcher_switch_to_view(app->view_dispatcher, SubGhzRemoteViewTextInput);
     }
 }
+
+/**
+ * @brief      Callback for drawing the game screen.
+ * @details    This function is called when the screen needs to be redrawn, like when the model gets updated.
+ * @param      canvas  The canvas to draw on.
+ * @param      model   The model - MyModel object.
+*/
+static void subghzremote_view_game_draw_callback(Canvas* canvas, void* model) {
+    SubGhzRemotePlayModel* my_model = (SubGhzRemotePlayModel*)model;
+    //canvas_draw_icon(canvas, my_model->x, 20, &I_glyph_1_14x40);
+    //canvas_draw_str(canvas, 1, 10, "LEFT/RIGHT to change x");
+    //FuriString* xstr = furi_string_alloc();
+    //furi_string_printf(xstr, "x: %u  OK=play tone", my_model->x);
+    //canvas_draw_str(canvas, 44, 24, furi_string_get_cstr(xstr));
+    //furi_string_printf(xstr, "random: %u", (uint8_t)(furi_hal_random_get() % 256));
+    //canvas_draw_str(canvas, 44, 36, furi_string_get_cstr(xstr));
+    //furi_string_printf(
+    //xstr,
+    //"team: %s (%u)",
+    //setting_1_names[my_model->setting_1_index],
+    //setting_1_values[my_model->setting_1_index]);
+    //canvas_draw_str(canvas, 44, 48, furi_string_get_cstr(xstr));
+    //furi_string_printf(xstr, "name: %s", furi_string_get_cstr(my_model->setting_2_name));
+    //canvas_draw_str(canvas, 44, 60, furi_string_get_cstr(xstr));
+    //furi_string_free(xstr);
+}
