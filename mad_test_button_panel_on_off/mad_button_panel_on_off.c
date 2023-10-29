@@ -9,9 +9,6 @@
 #include <gui/modules/variable_item_list.h>
 #include <notification/notification.h>
 #include <notification/notification_messages.h>
-
-#include <stdlib.h>
-#include <input/input.h>
 #include "mad_test_button_panel_on_off_icons.h"
 #include "mad_test_button_panel_on_off.h"
 
@@ -36,8 +33,7 @@ typedef enum {
     SubGhzRemoteViewAbout, // The about screen with directions, link to social channel, etc.
 } SubGhzRemoteView;
 
-// Not use for the moment.
-/**
+/**Not use for the moment.
  * typedef enum {
     SubGhzRemoteEventIdRedrawScreen = 0, // Custom event to redraw the screen
     SubGhzRemoteEventIdOkPressed = 42, // Custom event to process OK button getting pressed down
