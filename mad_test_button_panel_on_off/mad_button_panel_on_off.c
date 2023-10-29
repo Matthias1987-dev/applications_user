@@ -61,7 +61,7 @@ typedef struct {
 } SubGhzRemoteApp;
 
 typedef struct {
-    uint32_t setting_1_index; // The team color setting index
+    uint32_t setting_1_index; // The Remote name setting index
     FuriString* setting_2_name; // The name setting
     uint8_t x; // The x coordinate
 } SubGhzRemotePlayModel;
@@ -105,8 +105,8 @@ static uint32_t subghzremote_navigation_configure_callback(void* _context) {
 /**
  * @brief      Handle submenu item selection.
  * @details    This function is called when user selects an item from the submenu.
- * @param      context  The context - SkeletonApp object.
- * @param      index     The SkeletonSubmenuIndex item that was clicked.
+ * @param      context  The context - SubGhzRemoteApp object.
+ * @param      index     The SubGhzRemoteSubmenuIndex item that was clicked.
 */
 static void subghzremote_submenu_callback(void* context, uint32_t index) {
     SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
@@ -123,4 +123,41 @@ static void subghzremote_submenu_callback(void* context, uint32_t index) {
     default:
         break;
     }
+}
+
+/**
+ * Setting the Remote Number.  We have 4 options: A, B, C, D.
+*/
+static const char* setting_1_config_label = "Remote Number";
+static uint8_t setting_1_values[] = {1, 2, 3, 4};
+static char* setting_1_names[] = {"A", "B", "C", "D"};
+static void subghzremote_setting_1_change(VariableItem* item) {
+    SubGhzRemoteApp* app = variable_item_get_context(item);
+    uint8_t index = variable_item_get_current_value_index(item);
+    variable_item_set_current_value_text(item, setting_1_names[index]);
+    SubGhzRemotePlayModel* model = view_get_model(app->view_play);
+    model->setting_1_index = index;
+}
+
+/**
+ * Our 2nd sample setting is a text field.  When the user clicks OK on the configuration 
+ * setting we use a text input screen to allow the user to enter a name.  This function is
+ * called when the user clicks OK on the text input screen.
+*/
+static const char* setting_2_config_label = "Category";
+static const char* setting_2_entry_text = "Enter name of Category";
+static const char* setting_2_default_value = "Remote ";
+static void subghzremote_setting_2_text_updated(void* context) {
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    bool redraw = true;
+    with_view_model(
+        app->view_game,
+        SubGhzRemotePlayModel * model,
+        {
+            furi_string_set(model->setting_2_name, app->temp_buffer);
+            variable_item_set_current_value_text(
+                app->setting_2_item, furi_string_get_cstr(model->setting_2_name));
+        },
+        redraw);
+    view_dispatcher_switch_to_view(app->view_dispatcher, SubGhzRemoteViewConfigure);
 }
