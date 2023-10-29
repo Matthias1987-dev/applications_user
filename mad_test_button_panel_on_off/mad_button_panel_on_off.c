@@ -65,3 +65,62 @@ typedef struct {
     FuriString* setting_2_name; // The name setting
     uint8_t x; // The x coordinate
 } SubGhzRemotePlayModel;
+
+/**
+ * @brief      Callback for exiting the application.
+ * @details    This function is called when user press back button.  We return VIEW_NONE to
+ *            indicate that we want to exit the application.
+ * @param      _context  The context - unused
+ * @return     next view id
+*/
+static uint32_t subghzremote_navigation_exit_callback(void* _context) {
+    UNUSED(_context);
+    return VIEW_NONE;
+}
+
+/**
+ * @brief      Callback for returning to submenu.
+ * @details    This function is called when user press back button.  We return VIEW_NONE to
+ *            indicate that we want to navigate to the submenu.
+ * @param      _context  The context - unused
+ * @return     next view id
+*/
+static uint32_t subghzremote_navigation_submenu_callback(void* _context) {
+    UNUSED(_context);
+    return SubGhzRemoteViewSubmenu;
+}
+
+/**
+ * @brief      Callback for returning to configure screen.
+ * @details    This function is called when user press back button.  We return VIEW_NONE to
+ *            indicate that we want to navigate to the configure screen.
+ * @param      _context  The context - unused
+ * @return     next view id
+*/
+static uint32_t subghzremote_navigation_configure_callback(void* _context) {
+    UNUSED(_context);
+    return SubGhzRemoteViewConfigure;
+}
+
+/**
+ * @brief      Handle submenu item selection.
+ * @details    This function is called when user selects an item from the submenu.
+ * @param      context  The context - SkeletonApp object.
+ * @param      index     The SkeletonSubmenuIndex item that was clicked.
+*/
+static void subghzremote_submenu_callback(void* context, uint32_t index) {
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    switch(index) {
+    case SubGhzRemoteSubmenuIndexPlay:
+        view_dispatcher_switch_to_view(app->view_dispatcher, SubGhzRemoteViewPlay);
+        break;
+    case SubGhzRemoteSubmenuIndexConfigure:
+        view_dispatcher_switch_to_view(app->view_dispatcher, SubGhzRemoteViewConfigure);
+        break;
+    case SubGhzRemoteSubmenuIndexAbout:
+        view_dispatcher_switch_to_view(app->view_dispatcher, SubGhzRemoteViewAbout);
+        break;
+    default:
+        break;
+    }
+}
