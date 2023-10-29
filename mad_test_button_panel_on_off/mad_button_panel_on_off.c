@@ -90,34 +90,6 @@ typedef struct {
 */
 
 /**
-// struct definition copy from boxmover
-//https://github.com/at-manos/flipper-swdocs/blob/main/docs/your-first-program/code-so-far/gui/box_mover.c
-//
-*/
-
-typedef struct {
-    int x;
-    int y;
-} ButtonPosition;
-
-typedef struct {
-    ButtonPosition* position;
-} Button;
-
-Button* button_alloc() {
-    Button* instance = malloc(sizeof(Button));
-    instance->position = malloc(sizeof(ButtonPosition));
-    instance->position->x = 1;
-    instance->position->y = 1;
-
-    return instance;
-}
-
-void button_free(Button* instance) {
-    free(instance->position);
-    free(instance);
-}
-/**
 my_draw_background is a function that draw the background of the application
 greatet from me.
 my_draw_enter_1 to my_draw_enter_8 are function that draw the background and
