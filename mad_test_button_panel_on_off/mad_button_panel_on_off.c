@@ -33,13 +33,14 @@ typedef enum {
     SubGhzRemoteViewAbout, // The about screen with directions, link to social channel, etc.
 } SubGhzRemoteView;
 
-/**Not use for the moment.
-    typedef enum {
+/**Not use for the moment.*/
+typedef enum {
     SubGhzRemoteEventIdRedrawScreen = 0, // Custom event to redraw the screen
     SubGhzRemoteEventIdOkPressed = 42, // Custom event to process OK button getting pressed down
-} SubGhzRemoteEventId;*/
+} SubGhzRemoteEventId;
+* /
 
-typedef struct {
+    typedef struct {
     ViewDispatcher* view_dispatcher; // Switches between our views
     NotificationApp* notifications; // Used for controlling the backlight
     Submenu* submenu; // The application menu
@@ -146,7 +147,7 @@ static void subghzremote_setting_2_text_updated(void* context) {
     SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
     bool redraw = true;
     with_view_model(
-        app->view_game,
+        app->view_play,
         SubGhzRemotePlayModel * model,
         {
             furi_string_set(model->setting_2_name, app->temp_buffer);
@@ -176,7 +177,7 @@ static void subghzremote_setting_item_clicked(void* context, uint32_t index) {
         // Copy the current name into the temporary buffer.
         bool redraw = false;
         with_view_model(
-            app->view_game,
+            app->view_play,
             SubGhzRemotePlayModel * model,
             {
                 strncpy(
@@ -206,12 +207,12 @@ static void subghzremote_setting_item_clicked(void* context, uint32_t index) {
 }
 
 /**
- * @brief      Callback for drawing the game screen.
+ * @brief      Callback for drawing the play screen.
  * @details    This function is called when the screen needs to be redrawn, like when the model gets updated.
  * @param      canvas  The canvas to draw on.
  * @param      model   The model - MyModel object.
 */
-static void subghzremote_view_game_draw_callback(Canvas* canvas, void* model) {
+static void subghzremote_view_play_draw_callback(Canvas* canvas, void* model) {
     SubGhzRemotePlayModel* my_model = (SubGhzRemotePlayModel*)model;
     //canvas_draw_icon(canvas, my_model->x, 20, &I_glyph_1_14x40);
     //canvas_draw_str(canvas, 1, 10, "LEFT/RIGHT to change x");
@@ -229,4 +230,79 @@ static void subghzremote_view_game_draw_callback(Canvas* canvas, void* model) {
     //furi_string_printf(xstr, "name: %s", furi_string_get_cstr(my_model->setting_2_name));
     //canvas_draw_str(canvas, 44, 60, furi_string_get_cstr(xstr));
     //furi_string_free(xstr);
+}
+
+/**
+ * @brief      Callback for timer elapsed.
+ * @details    This function is called when the timer is elapsed.  We use this to queue a redraw event.
+ * @param      context  The context - SubGhzRemoteApp object.
+*/
+static void subghzremote_view_play_timer_callback(void* context) {
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    view_dispatcher_send_custom_event(app->view_dispatcher, SubGhzRemoteEventIdRedrawScreen);
+}
+
+/**
+ * @brief      Callback when the user starts the play screen.
+ * @details    This function is called when the user enters the play screen.  We start a timer to
+ *           redraw the screen periodically (so the random number is refreshed).
+ * @param      context  The context - SubGhzRemoteApp object.
+*/
+static void subghzremote_view_play_enter_callback(void* context) {
+    uint32_t period = furi_ms_to_ticks(200);
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    furi_assert(app->timer == NULL);
+    app->timer =
+        furi_timer_alloc(subghzremote_view_play_timer_callback, FuriTimerTypePeriodic, context);
+    furi_timer_start(app->timer, period);
+}
+
+/**
+ * @brief      Callback when the user exits the play screen.
+ * @details    This function is called when the user exits the play screen.  We stop the timer.
+ * @param      context  The context - SubGhzRemoteApp object.
+*/
+static void subghzremote_view_play_exit_callback(void* context) {
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    furi_timer_stop(app->timer);
+    furi_timer_free(app->timer);
+    app->timer = NULL;
+}
+
+/**
+ * @brief      Callback for custom events.
+ * @details    This function is called when a custom event is sent to the view dispatcher.
+ * @param      event    The event id - SubGhzRemoteEventId value.
+ * @param      context  The context - SubGhzRemoteApp object.
+*/
+static bool subghzremote_view_play_custom_event_callback(uint32_t event, void* context) {
+    SubGhzRemoteApp* app = (SubGhzRemoteApp*)context;
+    switch(event) {
+    case SubGhzRemoteEventIdRedrawScreen:
+        // Redraw screen by passing true to last parameter of with_view_model.
+        {
+            bool redraw = true;
+            with_view_model(
+                app->view_play, SubGhzRemotePlayModel * _model, { UNUSED(_model); }, redraw);
+            return true;
+        }
+    case SubGhzRemoteEventIdOkPressed:
+        // Process the OK button.  We play a tone based on the x coordinate.
+        if(furi_hal_speaker_acquire(500)) {
+            float frequency;
+            bool redraw = false;
+            with_view_model(
+                app->view_play,
+                SubGhzRemotePlayModel * model,
+                { frequency = model->x * 100 + 100; },
+                redraw);
+            furi_hal_speaker_start(frequency, 1.0);
+            furi_delay_ms(100);
+            furi_hal_speaker_stop();
+            furi_hal_speaker_release();
+        }
+        return true;
+    default:
+        return false;
+    }
 }
