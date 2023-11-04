@@ -3,69 +3,33 @@
 #include <gui/gui.h>
 #include <gui/view.h>
 #include <gui/view_dispatcher.h>
-#include <gui/modules/submenu.h>
-#include <gui/modules/text_input.h>
-#include <gui/modules/widget.h>
-#include <gui/modules/variable_item_list.h>
-#include <notification/notification.h>
-#include <notification/notification_messages.h>
 
-#include <stdlib.h>
-#include <input/input.h>
-#include "mad_test_button_panel_on_off_icons.h"
+#include "sub_ghz_remote_icons.h"
 
 /**
-// This is the position of the image on the screen
-// 1,1 is the first line left
-// 2,1 is the first line right
-// 1,2 is the second line left
-// 2,2 is the second line right
-// 1,3 is the third line left
-// 2,3 is the third line right
-// 1,4 is the fourth line left
-// 2,4 is the fourth line right
-//
-//List of the x and y
-//
-//enter_1   x=1     Y=1
-//enter_2   x=2     Y=1
-//enter_3   x=1     y=2
-//enter_4   x=2     y=2
-//enter_5   x=1     y=3
-//enter_6   x=2     y=3
-//enter_7   x=1     y=4
-//enter_8   x=2     y=4
-//
+This is the position of the image on the screen
+1,1 is the first line left
+2,1 is the first line right
+1,2 is the second line left
+2,2 is the second line right
+1,3 is the third line left
+2,3 is the third line right
+1,4 is the fourth line left
+2,4 is the fourth line right
+
+List of the x and y
+
+enter_1   x=1     Y=1
+enter_2   x=2     Y=1
+enter_3   x=1     y=2
+enter_4   x=2     y=2
+enter_5   x=1     y=3
+enter_6   x=2     y=3
+enter_7   x=1     y=4
+enter_8   x=2     y=4
+
 */
 
-/**
-// struct definition copy from boxmover
-//https://github.com/at-manos/flipper-swdocs/blob/main/docs/your-first-program/code-so-far/gui/box_mover.c
-//
-*/
-
-typedef struct {
-    int x;
-    int y;
-} ButtonPosition;
-
-typedef struct {
-    ButtonPosition* position;
-} Button;
-
-Button* button_alloc() {
-    Button* instance = malloc(sizeof(Button));
-    instance->position = malloc(sizeof(ButtonPosition));
-    instance->position->x = 1;
-    instance->position->y = 1;
-
-    return instance;
-}
-
-void button_free(Button* instance) {
-    free(instance->position);
-    free(instance);
-}
 /**
 my_draw_background is a function that draw the background of the application
 greatet from me.
@@ -79,6 +43,7 @@ that call the other function
 greatet from me.
 */
 
+/**
 void my_draw_background(Canvas* canvas, void* context) {
     UNUSED(context);
     canvas_draw_icon(canvas, 12, 5, &I_Off_25x27);
@@ -155,3 +120,4 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
 
     return 0;
 }
+*/
