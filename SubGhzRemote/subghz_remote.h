@@ -4,7 +4,7 @@
 #include <gui/view.h>
 #include <gui/view_dispatcher.h>
 
-#include "mad_test_button_panel_on_off_icons.h"
+#include "subghz_remote_icons.h"
 
 /**
 This is the position of the image on the screen

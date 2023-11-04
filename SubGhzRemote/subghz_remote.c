@@ -9,8 +9,10 @@
 #include <gui/modules/variable_item_list.h>
 #include <notification/notification.h>
 #include <notification/notification_messages.h>
-#include "mad_test_button_panel_on_off_icons.h"
-#include "mad_test_button_panel_on_off.h"
+//#include "skeleton_app_icons.h"
+
+#include "subghz_remote_icons.h"
+//#include "mad_test_button_panel_on_off.h"
 
 #define TAG "SubGhz Remote"
 
