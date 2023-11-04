@@ -4,7 +4,7 @@
 #include <gui/view.h>
 #include <gui/view_dispatcher.h>
 
-#include "subghz_remote_icons.h"
+#include "sub_ghz_remote_icons.h"
 
 /**
 This is the position of the image on the screen
@@ -43,6 +43,7 @@ that call the other function
 greatet from me.
 */
 
+/**
 void my_draw_background(Canvas* canvas, void* context) {
     UNUSED(context);
     canvas_draw_icon(canvas, 12, 5, &I_Off_25x27);
@@ -119,3 +120,4 @@ int32_t mad_test_button_panel_on_off_app(void* p) {
 
     return 0;
 }
+*/
