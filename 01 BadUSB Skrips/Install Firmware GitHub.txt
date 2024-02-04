@@ -1,0 +1,40 @@
+REM Erstellt einen Pfad und speichert ein Skript darin
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+STRING write-host "Installation aktuelle Firmware:"
+ENTER
+STRING $folder = Read-Host "Gib den Ordnernamen ein."
+ENTER
+STRING Write-Host "Der Ordner $folder wird erstellt"
+ENTER
+STRING git clone --recursive https://github.com/flipperdevices/flipperzero-firmware.git $folder
+ENTER
+STRING Write-Host "Download der Firmware fertig. Ordner $folder wurde erstellt."
+ENTER
+STRING cd .\$folder
+ENTER
+STRING Write-Host ".\fbt wird gestartet"
+ENTER
+STRING .\fbt
+ENTER
+STRING Write-Host ".\fbt Fertig."
+ENTER 
+STRING Write-Host ".\fbt vscode_dist wird gestartet"
+ENTER 
+STRING .\fbt vscode_dist
+ENTER
+STRING Write-Host ".\fbt vscode_dist Fertig"
+ENTER
+STRING $read = Read-Host "In VSC öffnen ? Mit j bestätigen!"
+ENTER
+STRING if ($read -eq "j"){
+ENTER
+STRING    code .\$folder
+ENTER
+STRING }
+CTRL-SHIFT-S
+
