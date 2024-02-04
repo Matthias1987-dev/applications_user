@@ -56,20 +56,10 @@ ENTER
 STRING }
 ENTER
 DELAY 500
-ALT f
+CTRL s
 DELAY 500
-STRING a
+GUI r
 DELAY 500
-STRING C:\FlipperZero\Install Firmware GitHub.ps1
+STRING powershell "C:\FlipperZero\Install Firmware GitHub.ps1"
 ENTER
 DELAY 500
-ALT f
-DELAY 500
-STRING s
-ENTER
-DELAY 500
-STRING C:\FlipperZero\Install Firmware GitHub.ps1
-ENTER
-DELAY 500
-STRING powershell C:\FlipperZero\Install Firmware GitHub.ps1
-ENTER
