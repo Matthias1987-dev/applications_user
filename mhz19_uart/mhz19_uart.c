@@ -71,7 +71,7 @@ int32_t mhz19_uart_app(void* p) {
     view_port_input_callback_set(state.view_port, mhz19_uart_input_callback, state.event_queue);
     gui_add_view_port(state.gui, state.view_port, GuiLayerFullscreen);
     mhz19_open(state.mhz19);
-    notification_message(state.notification, &sequence_display_backlight_enforce_on);
+    //notification_message(state.notification, &sequence_display_backlight_enforce_on);
 
     InputEvent event;
     do {
@@ -95,7 +95,7 @@ int32_t mhz19_uart_app(void* p) {
         view_port_update(state.view_port);
     } while(true);
 
-    notification_message(state.notification, &sequence_display_backlight_enforce_auto);
+    //notification_message(state.notification, &sequence_display_backlight_enforce_auto);
     mhz19_close(state.mhz19);
     gui_remove_view_port(state.gui, state.view_port);
 
