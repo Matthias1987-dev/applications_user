@@ -1,6 +1,3 @@
-/*
-Test MAD
-*/
 #include <stdlib.h>
 #include <dolphin/dolphin.h>
 #include <furi.h>
