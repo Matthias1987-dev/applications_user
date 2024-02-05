@@ -60,6 +60,13 @@ CTRL s
 DELAY 500
 GUI r
 DELAY 500
-STRING powershell "C:\FlipperZero\Install Firmware GitHub.ps1"
+STRING powershell
+ENTER
+DELAY 500
+STRING Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+ENTER
+STRING J
+ENTER
+STRING & 'C:\FlipperZero\Install Firmware GitHub.ps1'
 ENTER
 DELAY 500
