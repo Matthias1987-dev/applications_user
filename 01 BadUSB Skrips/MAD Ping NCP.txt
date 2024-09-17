@@ -1,0 +1,10 @@
+GUI R
+DELAY 5000
+REM Test
+STRING powershell
+DELAY 5000
+ENTER
+DELAY 5000
+STRING ping nextcloudpi.local -n 10 -4
+DELAY 5000
+ENTER

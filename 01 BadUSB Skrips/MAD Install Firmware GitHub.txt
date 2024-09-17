@@ -1,0 +1,79 @@
+GUI r
+DELAY 1000
+STRING powershell
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS 
+STRING New-Item -ItemType Directory -Path "C:\FlipperZero"
+ENTER
+WAIT_FOR_BUTTON_PRESS 
+STRING Set-Content -Path "C:\FlipperZero\Install Firmware GitHub.ps1" -Value ""
+ENTER
+WAIT_FOR_BUTTON_PRESS 
+STRING notepad "C:\FlipperZero\Install Firmware GitHub.ps1"
+ENTER
+WAIT_FOR_BUTTON_PRESS 
+STRING write-host "Installation aktuelle Firmware:/ Installation current official Firmware" -ForegroundColor Green
+ENTER
+STRING $folder = Read-Host "Gib den Ordnernamen ein./ Name of the main Folder."
+ENTER
+STRING Write-Host "Der Ordner $folder wird erstellt./ Create new folder $folder." -ForegroundColor Green
+ENTER
+STRING git clone https://github.com/flipperdevices/flipperzero-firmware.git $folder
+ENTER
+STRING Write-Host "Download der Firmware fertig. Ordner $folder wurde erstellt./ Finish Download of the Firmware. New Folder $folder greatet" -ForegroundColor Green
+ENTER
+STRING Set-Variable -Name folder1 -Value (Get-Location)
+ENTER
+STRING cd .\$folder
+ENTER
+STRING Write-Host "Download application_user von Matthias1987 Repository." -ForegroundColor Green
+ENTER
+STRING Remove-Item .\applications_user -Recurse
+ENTER
+STRING git clone --recursive https://github.com/Matthias1987-dev/applications_user.git
+ENTER
+STRING Write-Host ".\fbt wird gestartet./ .\fbt ist starting." -ForegroundColor Green
+ENTER
+STRING .\fbt
+ENTER
+STRING Write-Host ".\fbt Fertig./ .\fbt finish." -ForegroundColor Green
+ENTER
+STRING Write-Host ".\fbt vscode_dist wird gestartet./ .\fbt vscode_dist starting." -ForegroundColor Green
+ENTER
+STRING .\fbt vscode_dist
+ENTER
+STRING Write-Host ".\fbt vscode_dist Fertig./ .\fbt vscode_dist finish" -ForegroundColor Green
+ENTER
+STRING $read = Read-Host "In VSC öffnen ? Mit j bestätigen!/ Open in VSC? press j."
+ENTER
+STRING if ($read -eq "j") {
+ENTER
+STRING     $fullPath = Resolve-Path (Get-Location)
+ENTER
+STRING     code $fullPath
+ENTER
+STRING }
+ENTER
+CTRL s
+WAIT_FOR_BUTTON_PRESS 
+ALT F4
+WAIT_FOR_BUTTON_PRESS
+GUI r
+WAIT_FOR_BUTTON_PRESS 
+STRING powershell
+ENTER
+WAIT_FOR_BUTTON_PRESS 
+STRING Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING J
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING cd C:\FlipperZero\
+ENTER
+STRING write-host "Jetzt läuft das Skript automatisch" -ForegroundColor Green
+ENTER
+DELAY 1000
+STRING & 'C:\FlipperZero\Install Firmware GitHub.ps1'
+ENTER 
