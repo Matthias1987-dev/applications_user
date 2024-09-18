@@ -1,0 +1,20 @@
+REM Author: MAD
+REM Description: This script will ping the NextCloudPi server 10 times and then exit the PowerShell window.
+REM Target: Windows
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD Ping NCP
+REM TEST I.O.
+GUI R
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING ping nextcloudpi.local -n 10 -4
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING exit
+DELAY 2000
+ENTER

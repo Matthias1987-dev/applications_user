@@ -1,0 +1,24 @@
+REM Author: MAD
+REM Description: This script pings the default gateway and the fritz.box 10 times each.
+REM Target: Windows
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM Title: MAD Ping Fritz.Box
+REM TEST I.O.
+GUI R
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING ping 192.168.178.1 -n 10
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING ping fritz.box -n 10 -4
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING exit
+DELAY 2000
+ENTER

@@ -1,0 +1,41 @@
+REM Author: MAD
+REM Description: This script will create a PowerShell script on the desktop and open it with notepad. It will then ping the fritz.box indefinitely.
+REM Target: Windows
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD PS1 Datei erstellen
+REM TEST I.O.
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING cd .\Desktop\
+DELAY 2000
+ENTER
+STRING notepad MAD_Test.ps1
+ENTER
+DELAY 2000
+ENTER
+DELAY 2000
+STRING ping fritz.box -n 10 -4
+CTRL s
+WAIT_FOR_BUTTON_PRESS
+ALT F4
+GUI r
+DELAY 2000
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING set-executionpolicy -scope currentuser remotesigned
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 2000
+ENTER
+STRING .\Desktop\MAD_Test.ps1
+DELAY 2000
+ENTER
