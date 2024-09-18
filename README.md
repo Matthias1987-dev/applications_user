@@ -8,3 +8,18 @@ I try a new structure for the menu.
 In the moment i copy the skeleton_app from https://github.com/jamisonderek/flipper-zero-tutorials/tree/main/ui/skeleton_app
 
 Thanks to Jamison Derek.
+
+#New Bad USB Files:
+
+Some BadUSB Scrips:
+
+- Install FlipperZero Firmware from my repository.
+- Install FlipperZero Firmware Oficial.
+- Test Ping to FritzBox
+- Test Ping to NextCloud.local
+- Make new PS1 file
+- SSH to NextCloudPi with new fingerprint
+- SSH to NextCloudPi with Reboot
+- SSH to NextCloudPi with update
+- Start Powershell as Admin
+- Some Test files
