@@ -1,0 +1,32 @@
+REM Author: MAD
+REM Description: This script will delete the known_hosts file in the .ssh directory and then SSH into the NextCloudPi server.
+REM Target: Windows
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD SSH NCP new Fingerprint
+REM TEST I.O.
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING del ./.ssh/
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 1000
+ENTER
+STRING ssh mad@nextcloudpi.local
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING yes
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+DELAY 1000
+STRING 2490
+DELAY 1000
+ENTER
