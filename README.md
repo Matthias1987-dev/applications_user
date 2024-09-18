@@ -12,7 +12,10 @@ Thanks to Jamison Derek.
 #New Bad USB Files:
 
 Some BadUSB Scrips:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83dca3aa0bc4fb9cef7f82046a7c857d287579f3
 - Install FlipperZero Firmware from my repository.
 - Install FlipperZero Firmware Oficial.
 - Test Ping to FritzBox
