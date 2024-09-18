@@ -1,0 +1,37 @@
+REM Author: MAD
+REM Description: This script will delete the known_hosts file in the .ssh directory and then SSH into the NextCloudPi server. It will then update and upgrade the server.
+REM Target: Windows
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD SSH NCP update
+REM TEST I.O.
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING ssh mad@nextcloudpi.local
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+DELAY 1000
+STRING 2490
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+DELAY 1000
+STRING sudo apt update
+DELAY 1000
+ENTER
+STRING 2490
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING sudo apt upgrade
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING sudo reboot
+DELAY 1000
+ENTER
