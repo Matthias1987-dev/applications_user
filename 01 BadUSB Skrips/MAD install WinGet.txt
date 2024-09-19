@@ -1,0 +1,50 @@
+REM Autor: MAD
+REM Description: Install WinGet
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD install WinGet
+REM TEST I.O.
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING cd .\Desktop\
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING notepad MAD_install_WinGet.ps1
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 500
+STRING Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile "winget.msixbundle"
+ENTER
+STRING Add-AppxPackage -Path "winget.msixbundle"
+ENTER
+STRING Remove-Item -Path "winget.msixbundle"
+ENTER
+STRING winget --version
+CTRL s
+WAIT_FOR_BUTTON_PRESS
+ALT F4
+GUI r
+DELAY 2000
+REM STRING powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass' -Verb RunAs"
+ENTER
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING set-executionpolicy -scope currentuser remotesigned
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 2000
+ENTER
+STRING .\Desktop\MAD_install_WinGet.ps1
+DELAY 2000
+ENTER
