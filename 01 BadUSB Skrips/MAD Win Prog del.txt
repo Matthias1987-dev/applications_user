@@ -1,0 +1,196 @@
+REM Author: MAD
+REM Description: This script uninstalls pre-installed Windows 10 apps.
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD Win Prog del
+REM TEST I.O.
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING cd .\Desktop\
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING notepad DEL_WIN_SW.ps1
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 500
+ENTER
+REM Uninstall WhatsApp app
+STRING Write-Host "Moechten Sie die WhatsApp-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *whatsapp* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Spotify app
+STRING Write-Host "Moechten Sie die Spotify-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *spotify* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall LinkedIn app
+STRING Write-Host "Moechten Sie die LinkedIn-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *linkedin* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Cortana app
+STRING Write-Host "Moechten Sie die Cortana-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *cortana* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Filme & TV app
+STRING Write-Host "Moechten Sie die Filme & TV-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *filme"&"tv* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Karten app
+STRING Write-Host "Moechten Sie die Karten-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *karten* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Kontakte app
+STRING Write-Host "Moechten Sie die Kontakte-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *kontakte* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Kurznotizen app
+STRING Write-Host "Moechten Sie die Kurznotizen-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *kurznotizen* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Mail und Kalender app
+STRING Write-Host "Moechten Sie die Mail und Kalender-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *mail* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Microsoft Clipchamp app
+STRING Write-Host "Moechten Sie die Microsoft Clipchamp-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *clipchamp* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Microsoft Teams app
+STRING Write-Host "Moechten Sie die Microsoft Teams-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *teams* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Microsoft To Do app
+STRING Write-Host "Moechten Sie die Microsoft To Do-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *to do* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Nachrichten app
+STRING Write-Host "Moechten Sie die Nachrichten-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *nachrichten* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Solitaire app
+STRING Write-Host "Moechten Sie die Solitaire-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *solitaire* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Wetter app
+STRING Write-Host "Moechten Sie die Wetter-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *wetter* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Xbox Live app
+STRING Write-Host "Moechten Sie die Xbox Live-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *xbox live* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Xbox app
+STRING Write-Host "Moechten Sie die Xbox-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *xbox* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Netflix app
+STRING Write-Host "Moechten Sie die Netflix-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *netflix* | Remove-AppxPackage }
+ENTER
+ENTER
+REM Uninstall Disney app
+STRING Write-Host "Moechten Sie die Disney-App wirklich entfernen? (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { Get-AppxPackage *disney* | Remove-AppxPackage }
+ENTER
+ENTER
+CTRL s
+WAIT_FOR_BUTTON_PRESS
+ALT F4
+GUI r
+DELAY 2000
+REM STRING powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass' -Verb RunAs"
+ENTER
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING set-executionpolicy -scope currentuser remotesigned
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 2000
+ENTER
+STRING .\Desktop\DEL_WIN_SW.ps1
+DELAY 2000
+ENTER
