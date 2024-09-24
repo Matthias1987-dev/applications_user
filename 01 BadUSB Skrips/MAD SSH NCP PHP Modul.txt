@@ -1,9 +1,9 @@
 REM Author: MAD
-REM Description: This script will delete the known_hosts file in the .ssh directory and then SSH into the NextCloudPi server. It will then update and upgrade the server.
+REM Description: Install PHP modul
 REM Target: Windows
 REM Dependencies: PowerShell
 REM Version: 1.0
-REM title: MAD SSH NCP update
+REM title: MAD SSH NCP PHP Modul
 REM TEST I.O.
 GUI r
 DELAY 500
@@ -28,13 +28,31 @@ STRING 2490
 DELAY 1000
 ENTER
 WAIT_FOR_BUTTON_PRESS
-STRING sudo apt upgrade
+STRING sudo apt-get install php-imagick
 DELAY 1000
 ENTER
 WAIT_FOR_BUTTON_PRESS
-STRING y
+STRING php.ini
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING sudo systemctl restart apache2
+DELAY 1000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING sudo apt-get install libmagickcore-6.q16-6-extra
 DELAY 1000
 WAIT_FOR_BUTTON_PRESS
-STRING sudo reboot
+ENTER
+STRING 2490
 DELAY 1000
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING Y
+DELAY 1000
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING sudo service apache2 restart
+DELAY 1000
+WAIT_FOR_BUTTON_PRESS
 ENTER

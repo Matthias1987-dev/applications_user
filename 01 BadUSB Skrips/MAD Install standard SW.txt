@@ -1,0 +1,253 @@
+REM Author: MAD
+REM Description: 
+REM Dependencies: PowerShell
+REM Version: 1.0
+REM title: MAD Install standard SW
+REM TEST N.I.O.
+REM Abfrage ob Winget installiert ist
+REM teamviewer fehlt noch
+REM VM Workstation fehlt noch
+REM WIN32 Disk Imager fehlt noch
+REM Discord fehlt noch
+REM FileZilla fehlt noch
+REM FotoSortierer fehlt noch
+REM Yamaha THR Remote fehlt noch
+REM SD Formatter fehlt noch
+REM Zoom edith fehlt noch
+REM Cura Ultimaker fehlt noch
+REM Repetier-Host fehlt noch
+REM VSCode fehlt noch
+
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING cd .\Desktop\
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING notepad MAD_Install_Standard_SW.ps1
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 500
+ENTER
+REM Install WinRar
+STRING Write-Host "Moechten Sie die Software WinRar intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install WinRAR.WinRAR }
+ENTER
+ENTER
+REM Install VLC
+STRING Write-Host "Moechten Sie die Software PuTyy intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install PuTTY.PuTTY }
+ENTER
+ENTER
+REM Install Telegram
+STRING Write-Host "Moechten Sie die Software Telegram intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Telegram.TelegramDesktop }
+ENTER
+ENTER
+REM Install StikyPassword
+STRING Write-Host "Moechten Sie die Software StikyPassword intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install StickyPassword.StickyPassword }
+ENTER
+ENTER
+REM Install Raspberry Pi Imager
+STRING Write-Host "Moechten Sie die Software Raspberry Pi Imager intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install RaspberryPi.Imager }
+ENTER
+ENTER
+REM Install Notepad++
+STRING Write-Host "Moechten Sie die Software Notepad++ intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install NotepadPlusPlus.NotepadPlusPlus }
+ENTER
+ENTER
+REM Install Visual Studio Code
+STRING Write-Host "Moechten Sie die Software Visual Studio Code intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Microsoft.VisualStudioCode }
+ENTER
+ENTER
+REM Install RealVNC Viewer
+STRING Write-Host "Moechten Sie die Software RealVNC Viewer intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install RealVNC.VNCViewer }
+ENTER
+ENTER
+REM Install QFinder Pro
+STRING Write-Host "Moechten Sie die Software QFinder Pro intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install QNAP.QfinderPro }
+ENTER
+ENTER
+REM Install Nextcloud
+STRING Write-Host "Moechten Sie die Software Nextcloud intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Nextcloud.Nextcloud }
+ENTER
+ENTER
+REM Install TuxGuitar
+STRING Write-Host "Moechten Sie die Software TuxGuitar intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install TuxGuitar.TuxGuitar }
+ENTER
+ENTER
+REM Install Audacity
+STRING Write-Host "Moechten Sie die Software Audacity intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Audacity.Audacity }
+ENTER
+ENTER
+REM Install balenaEtcher
+STRING Write-Host "Moechten Sie die Software balenaEtcher intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install balena.etcher }
+ENTER
+ENTER
+REM Install ProfiCAD
+STRING Write-Host "Moechten Sie die Software ProfiCAD intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install ProfiCAD.ProfiCAD }
+ENTER
+ENTER
+REM Install Arduino
+STRING Write-Host "Moechten Sie die Software Arduino intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Arduino.Arduino }
+ENTER
+ENTER
+REM Install qFlipper
+STRING Write-Host "Moechten Sie die Software qFlipper intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install qFlipper.qFlipper }
+ENTER
+ENTER
+REM Install FreeCAD
+STRING Write-Host "Moechten Sie die Software FreeCAD intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install FreeCAD.FreeCAD }
+ENTER
+ENTER
+REM Install SweetHome3D
+STRING Write-Host "Moechten Sie die Software SweetHome3D intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install SweetHome3D.SweetHome3D }
+ENTER
+ENTER
+REM Install Jamulus
+STRING Write-Host "Moechten Sie die Software Jamulus intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Jamulus.Jamulus }
+ENTER
+ENTER
+REM Intall HWinfo
+STRING Write-Host "Moechten Sie die Software HWinfo intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install HWiNFO.HWiNFO64 }
+ENTER
+ENTER
+REM Install FreeFileSync
+STRING Write-Host "Moechten Sie die Software FreeFileSync intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install FreeFileSync.FreeFileSync }
+ENTER
+ENTER
+REM Install GIT
+STRING Write-Host "Moechten Sie die Software GIT intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Git.Git }
+ENTER
+ENTER
+REM Install Python
+STRING Write-Host "Moechten Sie die Software Python intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Python.Python }
+ENTER
+ENTER
+REM Install YubiKey Manager
+STRING Write-Host "Moechten Sie die Software YubiKey Manager intallieren (J/N)"
+ENTER
+STRING $response = Read-Host
+ENTER
+STRING if ($response -eq 'J') { winget install Yubico.YubiKeyManager }
+ENTER
+ENTER
+CTRL s
+WAIT_FOR_BUTTON_PRESS
+ALT F4
+GUI r
+DELAY 2000
+REM STRING powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass' -Verb RunAs"
+ENTER
+STRING powershell
+DELAY 500
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING set-executionpolicy -scope currentuser remotesigned
+DELAY 2000
+ENTER
+WAIT_FOR_BUTTON_PRESS
+STRING j
+DELAY 2000
+ENTER
+STRING .\Desktop\MAD_Install_Standard_SW.ps1
+DELAY 2000
+ENTER
+REM Ende
+REM Test
+REM neu
